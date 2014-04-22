@@ -981,6 +981,11 @@ public abstract class SwipeBack extends ViewGroup {
 	 *            Whether open/close should be animated.
 	 */
 	public abstract SwipeBack open(boolean animate);
+	
+	public SwipeBack setContentContainerBackgroundColor(int color) {
+		mContentContainer.setBackgroundColor(color);
+		return this;
+	}
 
 	/**
 	 * Set the background color of the swipe back view container (The container
