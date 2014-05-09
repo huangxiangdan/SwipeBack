@@ -797,6 +797,7 @@ public class OverlaySwipeBack extends DraggableSwipeBack {
 		return true;
 	}
 
+	@TargetApi(Build.VERSION_CODES.FROYO)
 	private void onPointerUp(MotionEvent ev) {
 		final int pointerIndex = ev.getActionIndex();
 		final int pointerId = ev.getPointerId(pointerIndex);

@@ -1,7 +1,9 @@
 package com.hannesdorfmann.swipeback;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Canvas;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 
@@ -20,21 +22,24 @@ class BuildLayerFrameLayout extends FrameLayout {
 
     private boolean mFirst = true;
 
-    public BuildLayerFrameLayout(Context context) {
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+	public BuildLayerFrameLayout(Context context) {
         super(context);
         if (SwipeBack.USE_TRANSLATIONS) {
             setLayerType(LAYER_TYPE_HARDWARE, null);
         }
     }
 
-    public BuildLayerFrameLayout(Context context, AttributeSet attrs) {
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+	public BuildLayerFrameLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         if (SwipeBack.USE_TRANSLATIONS) {
             setLayerType(LAYER_TYPE_HARDWARE, null);
         }
     }
 
-    public BuildLayerFrameLayout(Context context, AttributeSet attrs, int defStyle) {
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+	public BuildLayerFrameLayout(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         if (SwipeBack.USE_TRANSLATIONS) {
             setLayerType(LAYER_TYPE_HARDWARE, null);
@@ -72,13 +77,14 @@ class BuildLayerFrameLayout extends FrameLayout {
         }
     }
 
-    @Override
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR1)
+	@Override
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
 
         if (mChanged && SwipeBack.USE_TRANSLATIONS) {
             post(new Runnable() {
-                @Override
+				@Override
                 public void run() {
                     if (mAttached) {
                         final int layerType = getLayerType();

@@ -42,7 +42,8 @@ final class ViewHelper {
         return v.getBottom();
     }
 
-    public static int getLayoutDirection(View v) {
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
+	public static int getLayoutDirection(View v) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
             return v.getLayoutDirection();
         }

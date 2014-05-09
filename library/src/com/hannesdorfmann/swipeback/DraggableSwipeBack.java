@@ -606,6 +606,7 @@ public abstract class DraggableSwipeBack extends SwipeBack {
 		return checkV && mOnInterceptMoveEventListener.isViewDraggable(v, dx, x, y);
 	}
 
+	@TargetApi(Build.VERSION_CODES.FROYO)
 	protected float getXVelocity(VelocityTracker velocityTracker) {
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.FROYO) {
 			return velocityTracker.getXVelocity(mActivePointerId);
@@ -614,6 +615,7 @@ public abstract class DraggableSwipeBack extends SwipeBack {
 		return velocityTracker.getXVelocity();
 	}
 
+	@TargetApi(Build.VERSION_CODES.FROYO)
 	protected float getYVelocity(VelocityTracker velocityTracker) {
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.FROYO) {
 			return velocityTracker.getYVelocity(mActivePointerId);
